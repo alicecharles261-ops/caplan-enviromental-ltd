@@ -46,7 +46,7 @@ export function Header() {
           <img
             src={logo}
             alt="Caplan Environmental Ltd"
-            style={{ height: 46, width: "auto" }}
+            style={{ height: 36, width: "auto" }}
           />
         </a>
 
