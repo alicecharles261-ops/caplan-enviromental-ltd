@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import logo from "@/assets/caplan-logo.asset.json";
+import logo from "@/assets/caplan-logo.avif";
 
 const nav = [
   { label: "Services", href: "/#services" },
@@ -32,14 +32,8 @@ export function Header() {
       }`}
     >
       <div className="container-x flex h-20 items-center justify-between gap-6">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo.url} alt="Caplan Environmental Ltd" className="h-11 w-11 rounded-lg" />
-          <div className="leading-tight">
-            <div className="font-display text-[15px] font-bold text-heading">Caplan</div>
-            <div className="text-[11px] tracking-widest text-muted-foreground uppercase">
-              Environmental Ltd
-            </div>
-          </div>
+        <a href="/">
+          <img src={logo} alt="Caplan Environmental Ltd" className="h-14 w-auto" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">
