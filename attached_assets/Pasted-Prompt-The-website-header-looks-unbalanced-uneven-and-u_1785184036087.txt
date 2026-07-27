@@ -1,0 +1,152 @@
+Prompt
+
+The website header looks unbalanced, uneven, and unprofessional. Redesign it to have a premium, modern, clean corporate appearance while keeping the existing Caplan Environmental Ltd branding and color palette.
+
+Layout Requirements
+Use a maximum content width of 1280px.
+Header height should be 80–90px.
+Vertically center every element.
+Keep equal spacing and padding throughout.
+Logo
+Increase the logo size by approximately 20–30%.
+Remove the excessive empty space around the logo.
+Keep the logo aligned with the navigation.
+Make the company name align perfectly with the logo.
+Navigation
+
+Center the navigation horizontally.
+
+Menu items:
+
+Services
+Industries
+Why Us
+Gallery
+Reviews
+FAQ
+Contact
+
+Requirements:
+
+Equal spacing between every menu item (32–40px).
+Font size: 16px.
+Font weight: 500.
+Prevent text wrapping (for example "Why Us" should stay on one line).
+Smooth hover animation.
+Green underline or color transition on hover.
+Phone Number
+
+Move the phone number closer to the navigation.
+
+Display:
+
+📞 (800) 555-0100
+
+Requirements:
+
+Single line.
+Vertically centered.
+Medium font weight.
+Icon aligned perfectly.
+CTA Button
+
+Place the "Get a Free Quote" button on the far right.
+
+Requirements:
+
+Height: 52px.
+Horizontal padding: 28–36px.
+Border radius: 12px.
+Use the brand green.
+Add subtle shadow.
+Slight scale animation on hover.
+No oversized glow effect.
+Alignment
+
+Everything must share the same vertical center:
+
+Logo
+Company name
+Navigation
+Phone
+CTA button
+
+Nothing should appear higher or lower than another element.
+
+Spacing
+
+Use consistent spacing:
+
+Left padding: 40px
+Right padding: 40px
+Gap between logo and navigation: 50–60px
+Gap between navigation and phone: 40px
+Gap between phone and CTA: 32px
+
+Use Flexbox with:
+
+align-items: center
+justify-content: space-between
+Typography
+
+Use one modern font:
+
+Inter
+Manrope
+Poppins
+
+Company name:
+
+28px
+Bold
+
+Navigation:
+
+16px
+Medium
+
+Phone:
+
+17px
+Semi Bold
+
+Button:
+
+16px
+Bold
+Responsive
+
+Desktop:
+
+Full navigation visible.
+
+Tablet:
+
+Reduce spacing.
+
+Mobile:
+
+Replace navigation with a hamburger menu.
+Keep logo left.
+Phone icon.
+CTA button inside the mobile menu.
+Visual Style
+
+The header should look comparable in quality to premium corporate websites such as:
+
+ServiceTitan
+Terminix
+Rentokil
+Orkin
+Modern SaaS company websites
+
+Avoid:
+
+Uneven spacing
+Oversized empty areas
+Misaligned text
+Wrapped navigation labels
+Excessive shadows
+Inconsistent padding
+
+The final header should feel clean, balanced, premium, trustworthy, and professionally designed with pixel-perfect alignment.
