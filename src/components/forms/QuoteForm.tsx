@@ -59,7 +59,8 @@ export function QuoteForm() {
   const onSubmit = async (data: QuoteFormValues) => {
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("quote_requests").insert({
+      // 1. Save to Supabase
+      const { error: dbError } = await supabase.from("quote_requests").insert({
         full_name: data.fullName,
         email: data.email,
         phone: data.phone,
@@ -74,21 +75,37 @@ export function QuoteForm() {
         status: "New",
       });
 
-      if (error) throw error;
+      if (dbError) {
+        console.error("Quote DB insert error:", dbError);
+        throw new Error("Unable to save your request. Please try again.");
+      }
 
-      // Send confirmation email via Resend
+      // 2. Notify owner via email (failure is non-blocking — record is already saved)
       try {
-        await sendQuoteEmail({ data });
+        const emailResult = await sendQuoteEmail({
+          data: {
+            ...data,
+            submittedAt: new Date().toLocaleString("en-CA", {
+              dateStyle: "long",
+              timeStyle: "short",
+            }),
+          },
+        });
+        if (!emailResult.success) {
+          console.error("Owner notification email failed:", emailResult.error);
+        }
       } catch (emailErr) {
-        console.error("Failed to send email confirmation:", emailErr);
+        console.error("Owner notification email threw:", emailErr);
       }
 
       setIsSuccess(true);
-      toast.success("Quote request submitted successfully!");
       reset();
     } catch (error: any) {
       console.error("Quote submission error:", error);
-      toast.error(error.message || "Failed to submit quote request. Please try again.");
+      toast.error(
+        error.message ||
+          "Something went wrong while submitting your request. Please try again or call us directly."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -102,7 +119,7 @@ export function QuoteForm() {
         </div>
         <h3 className="mt-6 font-display text-2xl font-bold text-heading">Thank You!</h3>
         <p className="mt-3 text-muted-foreground max-w-sm mx-auto">
-          Your quote request has been received. One of our licensed pest control specialists will review your details and contact you within 1 business hour.
+          Your quote request has been received. Our team will contact you shortly.
         </p>
         <Button
           onClick={() => setIsSuccess(false)}
