@@ -42,7 +42,7 @@ export function Header() {
         }}
       >
         {/* Logo */}
-        <a href="/" style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center" }}>
+        <a href="/" style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center", marginRight: 28 }}>
           <img
             src={logo}
             alt="Caplan Environmental Ltd"
