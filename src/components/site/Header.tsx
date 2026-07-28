@@ -41,7 +41,8 @@ export function Header() {
           paddingRight: 40,
         }}
       >
-        {/* Logo */}
+        {/* Left: logo + nav grouped together */}
+        <div className="flex items-center" style={{ gap: 32 }}>
         <a href="/" className="flex-shrink-0">
           <img
             src={logo}
@@ -50,7 +51,7 @@ export function Header() {
           />
         </a>
 
-        {/* Nav — centered */}
+        {/* Nav */}
         <nav
           className="hidden lg:flex items-center"
           style={{ gap: 36 }}
@@ -67,6 +68,7 @@ export function Header() {
             </a>
           ))}
         </nav>
+        </div>
 
         {/* Right: phone + CTA */}
         <div className="hidden md:flex items-center" style={{ gap: 32 }}>
