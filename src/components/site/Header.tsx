@@ -41,17 +41,16 @@ export function Header() {
           paddingRight: 40,
         }}
       >
-        {/* Left: logo + nav grouped together */}
-        <div className="flex items-center" style={{ gap: 32 }}>
-        <a href="/" className="flex-shrink-0">
+        {/* Logo */}
+        <a href="/" style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center" }}>
           <img
             src={logo}
             alt="Caplan Environmental Ltd"
-            style={{ height: 36, width: "auto" }}
+            style={{ height: 36, width: "auto", display: "block" }}
           />
         </a>
 
-        {/* Nav */}
+        {/* Nav — centered */}
         <nav
           className="hidden lg:flex items-center"
           style={{ gap: 36 }}
@@ -68,7 +67,6 @@ export function Header() {
             </a>
           ))}
         </nav>
-        </div>
 
         {/* Right: phone + CTA */}
         <div className="hidden md:flex items-center" style={{ gap: 32 }}>
