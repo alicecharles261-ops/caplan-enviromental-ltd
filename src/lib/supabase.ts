@@ -1,6 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { type Database } from "../types/supabase";
 
+// Node 20 lacks native WebSocket; provide the `ws` package as a fallback so
+// the Supabase realtime client can initialise during SSR without throwing.
+const wsTransport =
+  typeof WebSocket !== "undefined"
+    ? WebSocket
+    : (await import("ws")).WebSocket;
+
 let supabaseUrl = import.meta.env.NEXT_PUBLIC_SUPABASE_URL || "";
 if (supabaseUrl.endsWith("/rest/v1/")) {
   supabaseUrl = supabaseUrl.slice(0, -9);
@@ -8,7 +15,9 @@ if (supabaseUrl.endsWith("/rest/v1/")) {
   supabaseUrl = supabaseUrl.slice(0, -8);
 }
 
-const supabaseAnonKey = import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || import.meta.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+const supabaseAnonKey =
+  import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  import.meta.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
   if (process.env.NODE_ENV !== "production") {
@@ -20,5 +29,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient<Database>(
   supabaseUrl || "https://placeholder-url.supabase.co",
-  supabaseAnonKey || "placeholder-anon-key"
+  supabaseAnonKey || "placeholder-anon-key",
+  {
+    realtime: {
+      transport: wsTransport as typeof WebSocket,
+    },
+  }
 );
