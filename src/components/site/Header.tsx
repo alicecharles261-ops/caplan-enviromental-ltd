@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import logo from "@/assets/caplan-logo.avif";
+import logo from "@/assets/caplan-logo.png";
 
 const nav = [
   { label: "Services", href: "/#services" },
