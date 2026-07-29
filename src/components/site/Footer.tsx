@@ -9,9 +9,9 @@ export function Footer() {
             <img
               src="/caplan-logo-full.png"
               alt="Caplan Environmental Ltd"
-              width={140}
-              height={75}
-              className="w-[140px] h-auto"
+              width={160}
+              height={31}
+              className="w-[160px] h-auto"
             />
           </a>
           <p className="mt-5 text-sm leading-relaxed">
