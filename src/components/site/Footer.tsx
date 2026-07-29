@@ -1,18 +1,19 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import logo from "@/assets/caplan-logo.asset.json";
 
 export function Footer() {
   return (
     <footer className="bg-heading text-white/80">
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-3">
-            <img src={logo.url} alt="Caplan Environmental Ltd" className="h-11 w-11 rounded-lg bg-white/5 p-1" />
-            <div className="leading-tight">
-              <div className="font-display text-white font-bold">Caplan</div>
-              <div className="text-[11px] tracking-widest uppercase">Environmental Ltd</div>
-            </div>
-          </div>
+          <a href="/">
+            <img
+              src="/caplan-logo-full.png"
+              alt="Caplan Environmental Ltd"
+              width={140}
+              height={75}
+              className="w-[140px] h-auto"
+            />
+          </a>
           <p className="mt-5 text-sm leading-relaxed">
             Licensed, certified & eco-friendly pest control for homes and businesses. Fast response,
             guaranteed results.
